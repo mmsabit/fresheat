@@ -1,19 +1,35 @@
-import { Button } from "@/components/ui/button"
+import { AboutHearth } from "@/components/about-hearth"
+import { CartProvider } from "@/components/cart-provider"
+import { CategoryRail } from "@/components/category-rail"
+import { ContactStrip } from "@/components/contact-strip"
+import { FlashDeal } from "@/components/flash-deal"
+import { Hero } from "@/components/hero"
+import { Journal } from "@/components/journal"
+import { MenuFilterProvider } from "@/components/menu-filter"
+import { PopularDishes } from "@/components/popular-dishes"
+import { SiteFooter } from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
+import { SpecialPromos } from "@/components/special-promos"
+import { Testimonials } from "@/components/testimonials"
 
 export default function Page() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
+    <CartProvider>
+      <MenuFilterProvider>
+        <SiteHeader />
+        <main className="min-h-svh">
+          <Hero />
+          <CategoryRail />
+          <SpecialPromos />
+          <PopularDishes />
+          <FlashDeal />
+          <AboutHearth />
+          <Testimonials />
+          <Journal />
+          <ContactStrip />
+        </main>
+        <SiteFooter />
+      </MenuFilterProvider>
+    </CartProvider>
   )
 }
